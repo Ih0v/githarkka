@@ -1,0 +1,88 @@
+GIT-ensitutustuminen
+
+
+1. Harjoituksen aihe: GIT versionhallintajärjestelmänä.
+
+Ohjelmoinnissa tai missä tahansa muussakin hommassa varmuuskopinointi
+ja oikean editoitavan version hallinta on tärkeää. Etenkin tämä korostuu
+tilanteissa, joissa usea ihminen editoi vastaavaa tekstiä. Yksi vanhimmista
+mutta edelleen käytetyimmistä "version hallintajärjestelmistä"
+on Git ja siihen liittyvä verkoalusta www.github.com.
+
+Tässä testissä kuvataan tutustumista Gittiin, sen asentamiseen ja
+peruskäyttöön. Luomme harjoituksena repositoryn ja tallannemme sinne tämän tiedoston. Lopussa on linkki harjoituksena tehtyyn git-reposetoryyn.
+
+Lähteenä tekstissä
+on käytetty The Git Book -opaskirjaa (https://git-scm.com/book) ellei toisin
+mainita.
+
+2. Gitin toiminta lyhyesti
+
+Git on tapa seurata valituissa tiedostoissa tehdyistä muutoksista. Tarvittaessa Git voi palauttaa tiedoston aiempaan versioon. Git mahdollistaa yhteistyön eri sisällöntuottajien kesken siten, jokainen käsittelee tiedostoa omalla laitteellaan.
+
+Git luo valituista tiedostoista erillisen hakemistotiedoston (.git), joka sijaitsee valitussa tiedostokansiossa. Tätä seurantatiedostoa kutsutaan repositoryksi (repository) ja se voidaan jakaa verkkoon, paikalliselle palvelimelle tai pitää paikallisena seurattujen tiedostojen yhteydessä.
+
+Tällaista järjestelmää kutsutaan versiokontrollijärjestelmäksi tai VCS:si. Kirjaimet tulevat sanoista Version Controll System. Gitistä voi lisäksi todeta sen olevan hajautettu (distributed), eli jokaisesta eri laitteella sijaitsevasta repositoryn "kloonista" voidaan tarvittaessa palauttaa koko repository.
+
+Versiokontrolli mahdollistaa tiedostojen palauttamisen aikaisempaan tilaan, mikäli niissä ilmenee korjattavaa. Git tukee myös oksautumista (branching), jolla tarkoitetaan mahdollisuutta luoda erilaisia "oksastoja" tiedostoista. Oksia ei tässä tekstissä esitellä, sillä ne ovat hieman monimutkaisempia asioita, joista kirjoittajalla ei vielä ole kokemusta.
+
+Git näkee tiedostoja kolmessa eri tilassa.
+    a. Kun niihin on tehnyt muutos mutta niitä ei ole vielä
+       valittu valokuvattavaksi (tiedoston tila: modified)
+    b. Kun ne on valittu tallennettavaksi (tiedostn tila: staged)
+    c. Kun ne on siirretty osasi .git-hakemistoa (tiedoston tila on: committed) tila on silloin "committed".
+
+Eli, Modified-->Staged-->Committed
+
+3. Gitin asentaminen
+
+Tätä harjoitustyötä varten Git asennettiin Debianiin perustuvaan Linux Light 5.2 -käyttöjärjestelmään. Asennus komentoriviltä tapahtuu komennolla:
+
+     $ sudo apt install git-all
+
+Asennettu versio on 2.25.1.
+
+Gitin asetuksia säädetään komennolla:
+
+      $ git config
+
+Tämän testin tarkoituksia varten tehtiin kaksi perusmuutosta.
+
+      $ git config --global user.name "Ih0v"
+      $ git config --global user.email "ilkka.vuorikuru@gmail.com"
+
+"Global" attribuutilla kerrotaan, että muutos vaikuttaa kaikkiin saman käyttäjän repositoryihin eikä vain paikalliskoneella sijaitseviin.
+
+Käyttäjänimi "Ih0v" sen sijaan on luotu jo aiemmin www.github.com -alustalle, jonne luodaan myös harjoitusrepository.
+
+Identiteettiä koskevien asetusten lisäksi Gitille voi määritellä käytettävän editorin, mikäli Git jonkin komennon yhteydessä tarvitsee sellaista.
+
+      $ git config --global core.editor emacs
+
+4. gitin käyttö
+
+Kun Git on asennettu ja määritelty käyttöön, voidaan ryhtyä valmistelemaan versiokontrollia.
+
+Tätä harjoitusta varten luodaan hakemisto:
+
+    /~dev/jyu/Digijohdanto/githarjoitus
+
+hakemistoon githarjoitus/ viedään lopuksi tämä tiedosto (git_digitut.txt).
+
+Gitille voidaan luoda repository joko paikallisesti johonkin hakemistoon tai repository voidana kloonata toisesta sijainnista. Tyypillisesti lähdesijainti on www.github.com:in alta löytyvä projekti mutta lähde voi olla myös muu verkkosijaiti tai vaikkapa paikallisverkossa oleva toinen tietokone.
+
+Tärkeä on muistaa, että paikallistietokoneelta ei suoraan luoda verkkoon repositoryä vaan se ensin luodaan paikalliskoneelle ja sitten kloonataan verkkosijaintiin.
+
+4.1. Repositoryn luomisen vaiheet
+
+Ensin siirrytään valittuun hakemistoon ja kirjoitetaan:
+
+      $ git init
+
+Hakemistoon on nyt syntynyt .git-niminen alikansio. Git ei vielä toistaiseksi seuraa mitään ja onkin aika kopioida tämä työstettävä tiedosto kyseiseen työhakemistoon. On tärkeä huomata, että .git-hakemistoon ei laiteta mitään vaan siihen hakemistoon, jossa juuri äsken kirjoitettiin "git init".
+
+Gitille kerrotaan lisävalitsimella "add", että jokin tiedosto tai hakemisto halutaan lisätä äsken luotuun .git hakemistoon. Tällöin Git alkaa seuraamaan tiedostoja muutosten varalta.
+
+        $ git add .
+
+Komento kertoo gitille, että sel alkaa seuraamaan kaikkia sen hetkisessä hakemistossa olevia tiedostoja ja alikansioita.
