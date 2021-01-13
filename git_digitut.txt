@@ -81,8 +81,41 @@ Ensin siirrytään valittuun hakemistoon ja kirjoitetaan:
 
 Hakemistoon on nyt syntynyt .git-niminen alikansio. Git ei vielä toistaiseksi seuraa mitään ja onkin aika kopioida tämä työstettävä tiedosto kyseiseen työhakemistoon. On tärkeä huomata, että .git-hakemistoon ei laiteta mitään vaan siihen hakemistoon, jossa juuri äsken kirjoitettiin "git init".
 
-Gitille kerrotaan lisävalitsimella "add", että jokin tiedosto tai hakemisto halutaan lisätä äsken luotuun .git hakemistoon. Tällöin Git alkaa seuraamaan tiedostoja muutosten varalta.
+Seuraavaksi /githarjoitus-kansiossa annetaan komento:
 
-        $ git add .
+      $ git add .
 
-Komento kertoo gitille, että sel alkaa seuraamaan kaikkia sen hetkisessä hakemistossa olevia tiedostoja ja alikansioita.
+"Add" lisää tiedoston tai kansion .git-hakemistoon. Edellä annettu komento määrää kaikki sen hetkisessä hakemistossa olevien tiedostojen ja kansioiden seuraamisen.
+
+Seuraavaksi katsomme "Status" komennolla, mitä Git tällä hetkellä näkee.
+
+      $ git status > gitkatse.txt // pelkkä git status riittää, loppuosalla otettiin talteen tuloste dokumentointia varten.
+
+Tekstitiedostoon tallentui seuraavaa:
+
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   git_digitut.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+Ensimmäinen rivi kertoo, että olemme oksalla nimeltä master. Master-oksa on gitin oletusoksa emmekä tässä lähde sitä muuttamaan. Periaatteessa oksia voi asennella ja rakennella vapaasti.
+
+No commits yet kertoo, ettemme ole tallentaneet yhtään muutosta eikä tiedostomme esimerkisi ole "varmuuskopioitu", koska sitä ei ole vielä viety .git-hakemistoon.
+
+Seuraavaksi Git antaakin ohjeita, kuinka voi toimia. Se on huomannut, että tiedosto git_digitut.txt on ilmestynyt seurattavaan hakemistoon. Git kehottaa tekemään "commitin", jonka teemmekin seuraavaksi.
+
+    $ git commit -m "Ensimmäinen tiedosto seurantaan"
+
+Commitissa voi antaa tietoa siitä, mitä muutos on koskenut. Jos esimerkiksi joku muu tarkastelisi tätä luomaamme .git-hakemistoa, näkisi hän, että tämä "committi" tarkoitti tiedoston siirtämistä seurantaan. Lisätiedot voivat olla joskus hyvinkin tärkeitä, jos ollaan vaikkapa palauttamassa tiedostoja muutaman sadan muutoksen päähän taaksepäin.
+
+Jos nyt kirjoitamme
+
+    $ git status
+
+saamme tiedon, että "nothing to commit", eli tiedostomme ovat ajantasalla.
