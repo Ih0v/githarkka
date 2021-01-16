@@ -1,7 +1,7 @@
 GIT-ensitutustuminen
 
 
-1. Harjoituksen aihe: GIT versionhallintajärjestelmänä.
+1. Harjoituksen aihe: Git-versionhallintajärjestelmänä.
 
 Ohjelmoinnissa tai missä tahansa muussakin hommassa varmuuskopinointi
 ja oikean editoitavan version hallinta on tärkeää. Etenkin tämä korostuu
@@ -30,7 +30,7 @@ Git näkee tiedostoja kolmessa eri tilassa.
     a. Kun niihin on tehnyt muutos mutta niitä ei ole vielä
        valittu valokuvattavaksi (tiedoston tila: modified)
     b. Kun ne on valittu tallennettavaksi (tiedostn tila: staged)
-    c. Kun ne on siirretty osasi .git-hakemistoa (tiedoston tila on: committed) tila on silloin "committed".
+    c. Kun ne on siirretty osasi .git-hakemistoa (tiedoston tila on: committed).
 
 Eli, Modified-->Staged-->Committed
 
@@ -119,3 +119,50 @@ Jos nyt kirjoitamme
     $ git status
 
 saamme tiedon, että "nothing to commit", eli tiedostomme ovat ajantasalla.
+
+Mikäli haluamme lisätä lisää tiedostoja seurattavaksi, onnistuu se lisäämällä lisää tiedostoja Gitin seurattavaksi.
+
+4.2 Repositoryn etäkäyttö
+
+Vaikka Git toimii paikallisestikin ihan hyvin, sen varsinaiset hyödyt tulevat ilmi vasta, kun Git toimii verkossa jaettuna.
+
+Jotta paikallinen Git voidaan lisätä Githubiin, täytyy ensin luoda tyhjä repository. Tämä onnistuu luomalla käyttäjätunnus Githubiin ja klikkailemalla sieltä "New repository".
+
+Tässä harjoituksessa luotiin seuraava tyhjä repository:
+
+https://github.com/Ih0v/githarkka.git
+
+Github antaa myös ohjeet, miten paikallinen Git saadaan siirrettyä Githubiin. Käytännössä se onnistu Git remote add -komennolla.
+
+Kun Gitbubissa on valmis tyhjä Git (githarkka.git), liitetään paikallinen Git-hakemisto komennolla.
+
+    git remote add origin https://github.com/Ih0v/githarkka.git
+
+Komento annetaan siinä hakemisttossa, jossa gittimme sijaitsee.
+
+Sitä seuraa komento
+
+     git branch main
+
+Ja lopuksi vielä "työnnetään" seuratut tiedostot Githubiin.
+
+   git push -u origin main
+
+"Origin" on tavanmukainen nimi paikalliselle repositorylle mutta periaatteessa nimeksi voi antaa mitä hyvänsä. "Main" tarkoittaa Githubin "pääoksaa", johon githarkka.git-repository on ripustettu.
+
+4.3 Gitin jakaminen
+
+Verkkorepositoryssä (githarkka.git) on nyt kaksi tiedostoa:
+
+- gitdigitut.txt
+- gitkatse.txt
+
+Edellinen on tämä teksti ja jälkimmäinen on välitiedosto, johon ohjattiin aiemmin Gitin tuloste siirrettäväksi sitten tähän tiedostoon.
+
+Mikäli tiedostoihin nyt ilmestyy paikallisia muutoksia, komennot git add, git commit ja git push jakautuvat nyt verkkoon.
+
+Mikäli kuka tahansa haluaa, hän voi hakea tämän git-repositoryn itselleen komennolla
+
+       git clone https://github.com/Ih0v/githarkka.git
+
+Tässä esittelyssä ei paneuduta sen syvemmin Gitin yhteiskäyttöön, koska kirjoittaja harjoittelee sitä vielä itsekin. Näillä eväillä versiokontrolli kuitenkin saatiin käyntiin.
