@@ -3,18 +3,11 @@ GIT-ensitutustuminen
 
 1. Harjoituksen aihe: Git-versionhallintajärjestelmänä.
 
-Ohjelmoinnissa tai missä tahansa muussakin hommassa varmuuskopinointi
-ja oikean editoitavan version hallinta on tärkeää. Etenkin tämä korostuu
-tilanteissa, joissa usea ihminen editoi vastaavaa tekstiä. Yksi vanhimmista
-mutta edelleen käytetyimmistä "version hallintajärjestelmistä"
-on Git ja siihen liittyvä verkoalusta www.github.com.
+Ohjelmoinnissa tai missä tahansa muussakin hommassa varmuuskopinointi ja oikean editoitavan version hallinta on tärkeää. Etenkin tämä korostuu tilanteissa, joissa usea ihminen editoi vastaavaa tekstiä. Yksi vanhimmista mutta edelleen käytetyimmistä "version hallintajärjestelmistä" on Git ja siihen liittyvä verkoalusta www.github.com.
 
-Tässä testissä kuvataan tutustumista Gittiin, sen asentamiseen ja
-peruskäyttöön. Luomme harjoituksena repositoryn ja tallannemme sinne tämän tiedoston. Lopussa on linkki harjoituksena tehtyyn git-reposetoryyn.
+Tässä testissä kuvataan tutustumista Gittiin, sen asentamiseen ja peruskäyttöön. Luomme harjoituksena repositoryn ja tallannemme sinne tämän tiedoston. Lopussa on linkki harjoituksena tehtyyn git-reposetoryyn.
 
-Lähteenä tekstissä
-on käytetty The Git Book -opaskirjaa (https://git-scm.com/book) ellei toisin
-mainita.
+Lähteenä tekstissä on käytetty The Git Book -opaskirjaa (https://git-scm.com/book) ellei toisin mainita.
 
 2. Gitin toiminta lyhyesti
 
@@ -27,12 +20,11 @@ Tällaista järjestelmää kutsutaan versiokontrollijärjestelmäksi tai VCS:si.
 Versiokontrolli mahdollistaa tiedostojen palauttamisen aikaisempaan tilaan, mikäli niissä ilmenee korjattavaa. Git tukee myös oksautumista (branching), jolla tarkoitetaan mahdollisuutta luoda erilaisia "oksastoja" tiedostoista. Oksia ei tässä tekstissä esitellä, sillä ne ovat hieman monimutkaisempia asioita, joista kirjoittajalla ei vielä ole kokemusta.
 
 Git näkee tiedostoja kolmessa eri tilassa.
+
     a. Kun niihin on tehnyt muutos mutta niitä ei ole vielä
        valittu valokuvattavaksi (tiedoston tila: modified)
     b. Kun ne on valittu tallennettavaksi (tiedostn tila: staged)
     c. Kun ne on siirretty osasi .git-hakemistoa (tiedoston tila on: committed).
-
-Eli, Modified-->Staged-->Committed
 
 3. Gitin asentaminen
 
