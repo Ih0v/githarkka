@@ -1,15 +1,21 @@
 GIT-ensitutustuminen
 
 
-1. Harjoituksen aihe: Git-versionhallintajärjestelmänä.
+1. HARJOITUKSEN AIHE: GIT-VERSIONHALLINTAJÄRJESTELMÄ
 
 Ohjelmoinnissa tai missä tahansa muussakin hommassa varmuuskopinointi ja oikean editoitavan version hallinta on tärkeää. Etenkin tämä korostuu tilanteissa, joissa usea ihminen editoi vastaavaa tekstiä. Yksi vanhimmista mutta edelleen käytetyimmistä "version hallintajärjestelmistä" on Git ja siihen liittyvä verkoalusta www.github.com.
+
+Valitsin Gitin työni aiheeksi, koska olen aina halunnut oppia ymmärtämään sitä aikaisemmin. Tähän asti tietoni Githubista on rajoittunut kavereiden kertomukseen tai silloin tällöin mediankin kertoessa jonkin asian löytyvän Githubista.
 
 Tässä testissä kuvataan tutustumista Gittiin, sen asentamiseen ja peruskäyttöön. Luomme harjoituksena repositoryn ja tallannemme sinne tämän tiedoston. Lopussa on linkki harjoituksena tehtyyn git-reposetoryyn.
 
 Lähteenä tekstissä on käytetty The Git Book -opaskirjaa (https://git-scm.com/book) ellei toisin mainita.
 
-2. Gitin toiminta lyhyesti
+Teksti on kirjoitettu emacsilla (Doom-pakettilaajennuksella), joten tämä teksti on samalla emacsin muistelua vuosien takaa ja uuteen tutustumista. Tästä johtuen tarjolla ei ole kuvakaappauksia. Komentorivikomennot olen sisentänyt ja ne alkavat $-merkillä.
+
+Tekstin lopussa on ohje, jolla lukija voi hakea tämän tekstin ja tämän tekstin tuottamiseen tarvitut muut tiedostot git-repositorystä, jonka luomme tässä.
+
+2. GITIN TOIMINTA LYHYESTI
 
 Git on tapa seurata valituissa tiedostoissa tehdyistä muutoksista. Tarvittaessa Git voi palauttaa tiedoston aiempaan versioon. Git mahdollistaa yhteistyön eri sisällöntuottajien kesken siten, jokainen käsittelee tiedostoa omalla laitteellaan.
 
@@ -26,7 +32,7 @@ Git näkee tiedostoja kolmessa eri tilassa.
     b. Kun ne on valittu tallennettavaksi (tiedostn tila: staged)
     c. Kun ne on siirretty osasi .git-hakemistoa (tiedoston tila on: committed).
 
-3. Gitin asentaminen
+3. GITIN ASENTAMINEN
 
 Tätä harjoitustyötä varten Git asennettiin Debianiin perustuvaan Linux Light 5.2 -käyttöjärjestelmään. Asennus komentoriviltä tapahtuu komennolla:
 
@@ -51,7 +57,7 @@ Identiteettiä koskevien asetusten lisäksi Gitille voi määritellä käytettä
 
       $ git config --global core.editor emacs
 
-4. gitin käyttö
+4. GITIN KÄYTTÖ
 
 Kun Git on asennettu ja määritelty käyttöön, voidaan ryhtyä valmistelemaan versiokontrollia.
 
@@ -59,13 +65,11 @@ Tätä harjoitusta varten luodaan hakemisto:
 
     /~dev/jyu/Digijohdanto/githarjoitus
 
-hakemistoon githarjoitus/ viedään lopuksi tämä tiedosto (git_digitut.txt).
-
 Gitille voidaan luoda repository joko paikallisesti johonkin hakemistoon tai repository voidana kloonata toisesta sijainnista. Tyypillisesti lähdesijainti on www.github.com:in alta löytyvä projekti mutta lähde voi olla myös muu verkkosijaiti tai vaikkapa paikallisverkossa oleva toinen tietokone.
 
 Tärkeä on muistaa, että paikallistietokoneelta ei suoraan luoda verkkoon repositoryä vaan se ensin luodaan paikalliskoneelle ja sitten kloonataan verkkosijaintiin.
 
-4.1. Repositoryn luomisen vaiheet
+4.1. REPOSITORYN LUOMISEN VAIHEET
 
 Ensin siirrytään valittuun hakemistoon ja kirjoitetaan:
 
@@ -114,7 +118,7 @@ saamme tiedon, että "nothing to commit", eli tiedostomme ovat ajantasalla.
 
 Mikäli haluamme lisätä lisää tiedostoja seurattavaksi, onnistuu se lisäämällä lisää tiedostoja Gitin seurattavaksi.
 
-4.2 Repositoryn etäkäyttö
+4.2 REPOSITORYN ETÄKÄYTTÖ
 
 Vaikka Git toimii paikallisestikin ihan hyvin, sen varsinaiset hyödyt tulevat ilmi vasta, kun Git toimii verkossa jaettuna.
 
@@ -142,7 +146,7 @@ Ja lopuksi vielä "työnnetään" seuratut tiedostot Githubiin.
 
 "Origin" on tavanmukainen nimi paikalliselle repositorylle mutta periaatteessa nimeksi voi antaa mitä hyvänsä. "Main" tarkoittaa Githubin "pääoksaa", johon githarkka.git-repository on ripustettu.
 
-4.3 Gitin jakaminen
+4.3 GITIN JAKAMINEN
 
 Verkkorepositoryssä (githarkka.git) on nyt kaksi tiedostoa:
 
@@ -158,3 +162,11 @@ Mikäli kuka tahansa haluaa, hän voi hakea tämän git-repositoryn itselleen ko
        git clone https://github.com/Ih0v/githarkka.git
 
 Tässä esittelyssä ei paneuduta sen syvemmin Gitin yhteiskäyttöön, koska kirjoittaja harjoittelee sitä vielä itsekin. Näillä eväillä versiokontrolli kuitenkin saatiin käyntiin.
+
+5. ARVIO GITISTÄ
+
+On luultavaa, että saan käyttää Githubia sekä opinnoissani että harrastukseni parissa. Omat ohjelmaprojektit on kätevä varmuuskopioda Gitin avulla ja joissain tapauksissa voin luultavasti jakaa niitä ystävieni kanssa. Git vaikuttaisi myös olevan laajalti käytetty, joten sen hallintaa voi pitää jonkinlaisena digisivistyksen muotona, jos näin haluaa asian ilmaista.
+
+Git ei ole täysin intuitiivinen ja vaatii hieman keskittymistä. Verkosta löytyy tietoa mutta esimerkisi Gihubin oman "Git Bookin" kahlaaminen ei ole aivan pikkujuttu, etenin jos on tutustumassa Gittiin ensimmäistä kertaa.
+
+Kaiken kaikkiaan, varsin opettavainen harjoitus ja on ilo harjoitella, kun lopputuloksena on ihan aidosti hyödyllisiä taitoja.
